@@ -14,26 +14,24 @@ public class DogsController : Controller
         return View(dogs);
     }
 
-    [HttpGet("create")]
+    [HttpGet("/create")]
     public IActionResult Create() {
         return View();
     }
 
-    [HttpGet("edit")]
-    public IActionResult Edit(int id)
-    {
-        var dog= dogService.GetDogById(id);
-        return View( dog );
+    [HttpGet("edit/{id}")]
+    public IActionResult Edit(int id) {
+        var dog = dogService.GetDogById(id);
+        return View(dog);
     }
 
-    [HttpPost("edit")]
-    public IActionResult Edit(Dog dog)
-    {
+    [HttpPost("edit/{id}")]
+    public IActionResult Edit(Dog dog) {
         dogService.UpdateDog(dog);
         return RedirectToAction(nameof(Index));
     }
 
-    [HttpPost("create")]
+    [HttpPost("/create")]
     public IActionResult Create(Dog dog) {
         dogService.AddDog(dog);
 
@@ -42,9 +40,8 @@ public class DogsController : Controller
     }
 
 
-    [HttpPost("delete")]
-    public IActionResult Delete(int id)
-    {
+    [HttpPost("/delete/{id}")]
+    public IActionResult Delete(int id) {
         dogService.DeleteDog(id);
 
         return RedirectToAction(nameof(Index));
