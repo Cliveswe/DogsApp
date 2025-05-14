@@ -17,7 +17,10 @@ public class DogService
             new Dog { Id = 10, Name = "Molly", Age = 5 }
     ];
 
+    private int NextId { get => dogs.Max(o => o.Id) + 1; }
+
     public void AddDog(Dog dog) {
+        dog.Id = NextId;
         dogs.Add(dog);
     }
 

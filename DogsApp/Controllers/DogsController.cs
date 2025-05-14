@@ -14,14 +14,15 @@ public class DogsController : Controller
         return View(dogs);
     }
 
-    [HttpGet("/create")]
+    [HttpGet("create")]
     public IActionResult Create() {
         return View();
     }
 
-    [HttpPost("/create")]
+    [HttpPost("create")]
     public IActionResult Create(Dog dog) {
         dogService.AddDog(dog);
+
         return RedirectToAction(nameof(Index));
 
     }
