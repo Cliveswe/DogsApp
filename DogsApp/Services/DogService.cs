@@ -27,4 +27,11 @@ public class DogService
     public Dog[] GetAllDogs() => dogs.ToArray();
 
     public Dog? GetDogById(int id) => dogs.SingleOrDefault(d => d.Id == id);
+
+    public void DeleteDog(int id)
+    {
+        Dog? d = GetDogById(id);
+        if(d != null)
+        dogs.Remove(d);
+    }
 }
