@@ -1,0 +1,18 @@
+﻿@using DogsApp.Models
+@model IEnumerable<Dog>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Dogs</title>
+    </head>
+    <body>
+        <ul>
+            @foreach (var dog in Model)
+            {
+                <li>@dog.Name</li>
+            }
+        </ul>
+
+        <a href="/create">Add</a>
+    </body>
+    </html>
