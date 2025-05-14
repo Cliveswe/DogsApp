@@ -19,7 +19,7 @@ public class DogsController : Controller
         return View();
     }
 
-    [HttpGet("edit/{id}")]
+    [HttpGet("/edit")]
     public IActionResult Edit(int id) {
         var dog = dogService.GetDogById(id);
         return View(dog);
