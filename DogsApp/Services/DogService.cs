@@ -34,4 +34,10 @@ public class DogService
         if(d != null)
         dogs.Remove(d);
     }
+
+    public void UpdateDog(Dog dog)
+    {
+        DeleteDog(dog.Id);
+        AddDog(dog);
+    }
 }

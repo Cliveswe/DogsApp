@@ -12,12 +12,14 @@
         <ul class="list-group">
             @foreach (var dog in Model)
             {
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>@dog.Name </span>  
+                    <li class="list-group-item d-flex justify-content-end">
+                        <span class="flex-grow-1 ">@dog.Name </span>  
+                        <input type="button" class="btn btn-outline-warning" value="Edit" onclick="location.href='/edit?id=@dog.Id' "  />
                         <form name="deleteform" action="/delete" method="post"> 
                             <input type="hidden" name="Id" value="@dog.Id" />
                             <input class="btn btn-outline-danger  "  type="submit" value="X"/>
-                            </form>
+                        </form>
+
                         
 
                     </li>
